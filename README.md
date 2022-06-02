@@ -24,18 +24,21 @@ cd /path/to/your/folder
 npm install
 
 # create a sketch
-canvas-sketch sketch-01.js --new
+canvas-sketch my-sketch.js --new
 
 # open a sketch
-canvas-sketch sketch-01.js --open
+canvas-sketch sketch-01-a.js --open
 
 # Start the tool on an existing file and change PNG export folder
-canvas-sketch sketch-01.js --output=media
-
-# Export Video
-canvas-sketch sketch-01.js --output=media --stream
+canvas-sketch sketch-01-a.js --output=media
 
 # Save the output
 cmd + s or ctrl + s (in the browser)
+
+# Export Video
+canvas-sketch sketch-01-c.js --output=media --stream
+
+# Save the output
+cmd + shift + s or ctrl + shift + s (in the browser)
 
 ```
