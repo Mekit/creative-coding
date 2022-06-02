@@ -12,15 +12,15 @@ const colors = [
 
 const sketch = () => {
   return ({ context, width, height }) => {
-    context.fillStyle = colors[2];
+    context.fillStyle = 'white';
     context.fillRect(0, 0, width, height);
 
     // Variables
     let padding = width * 0.1;
     let gridCount = 20;
-    let gridDimension = (width - padding) / gridCount;
-    let unit = gridDimension * 0.1;
-    let squareGap = unit * 1.5;
+    let gridSize = (width - padding) / gridCount;
+    let unit = gridSize * 0.1;
+    let gridGap = unit * 1.5;
 
     context.strokeStyle = 'gray';
     context.setLineDash([unit * 0.5, unit * 1]);
@@ -28,33 +28,32 @@ const sketch = () => {
 
     for (let i = 0; i < gridCount; i++) {
       for (let j = 0; j < gridCount; j++) {
-        let x = gridDimension * i + padding * 0.5;
-        let y = gridDimension * j + padding * 0.5;
+        let x = gridSize * i + padding * 0.5;
+        let y = gridSize * j + padding * 0.5;
 
         // Grid
-        context.beginPath();
-        context.rect(x, y, gridDimension, gridDimension);
+        // context.beginPath();
+        // context.rect(x, y, gridSize, gridSize);
         // context.stroke();
 
-        // Random color
-        // let number = Math.floor(Math.random() * colors.length);
-        // let color = colors[number];
-
-        // Controlled color
+        // Let the computer decide
+        // how many colored square
         let color = 'black';
-        let number = Math.random();
-        if (number > 0.9){
-          color = colors;
+        if (Math.random() > 0.8){
+          color = colors[2];
         }
         
-        // Filled Square
-        context.fillStyle = color;
-        context.fillRect(
-          x + squareGap * 0.5,
-          y + squareGap * 0.5,
-          gridDimension - squareGap,
-          gridDimension - squareGap,
-        );
+        // Let the computer decide
+        // if the square should be drawn
+        if (Math.random() > 0.2){
+          context.fillStyle = color;
+          context.fillRect(
+            x + gridGap * 0.5,
+            y + gridGap * 0.5,
+            gridSize - gridGap,
+            gridSize - gridGap,
+          );
+        }
       }
     }
   };
