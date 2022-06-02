@@ -1,7 +1,7 @@
 const canvasSketch = require('canvas-sketch');
 
 const settings = {
-  dimensions: [ 1024, 1024 ]
+  dimensions: [ 1080, 1080 ]
 };
 
 const colors = [

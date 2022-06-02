@@ -2,7 +2,7 @@ const canvasSketch = require('canvas-sketch');
 const { color } = require('canvas-sketch-util');
 
 const settings = {
-  dimensions: [ 1024, 1024 ],
+  dimensions: [ 1080, 1080 ],
   animate: true,
   duration: 15,
 };
@@ -41,7 +41,10 @@ const sketch = () => {
         // Draw
         drawSquare();
         drawSquareInner();
+
         // drawCircle();
+        // drawCircleInner();
+        
         // drawGrid();
         
         // Restore the context
@@ -53,9 +56,16 @@ const sketch = () => {
       context.strokeStyle = 'gray';
       context.setLineDash([unit * 0.5, unit * 1]);
       context.lineWidth = unit * 0.25;
+
+      context.save();
+      context.translate(
+        - gridSize * 0.5,
+        - gridSize * 0.5
+      );
       context.beginPath();
       context.rect(0, 0, gridSize, gridSize);
       context.stroke();
+      context.restore();
     }
 
     function drawSquare(){
@@ -64,7 +74,7 @@ const sketch = () => {
       context.save();
       context.translate(
         - gridSizeInner * 0.5 * p,
-        - gridSizeInner * 0.5
+        - gridSizeInner * 0.5 * p
       );
       
       context.fillStyle = 'black';
@@ -100,13 +110,27 @@ const sketch = () => {
     }
 
     function drawCircle(){
-      let p = pingPongPlayheadOffset(2, i, gridCount);
+      let p = pingPongPlayheadOffset(8, (i + j) * 4, gridCount);
+      context.beginPath();
+      context.fillStyle = colors[1];
+      context.arc(
+        0,
+        0,
+        (gridSizeInner) * 0.5 * p,
+        0, 
+        2 * Math.PI
+      );
+      context.fill();
+    }
+
+    function drawCircleInner(){
+      let p = pingPongPlayheadOffset(2, (i + j) * 2, gridCount);
       context.beginPath();
       context.fillStyle = colors[2];
       context.arc(
         0,
         0,
-        (gridSizeInner) * 0.3 * p,
+        (gridSizeInner) * 0.2 * p,
         0, 
         2 * Math.PI
       );
