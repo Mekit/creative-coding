@@ -8,9 +8,11 @@
 
 ### Sketches
 
-- `sketch-01.js` - grid with boxes
-- `sketch-02.js` - animated boxes
-- `skecch-03.js` - rotating lines
+- `sketch-01-a.js` - Grid with boxes
+- `sketch-01-b.js` - Grid using translate
+- `sketch-02-c.js` - Grid animated
+- `sketch-02.js` - Animated boxes
+- `skecch-03.js` - Rotating lines
 
 ### Some basic commands
 
