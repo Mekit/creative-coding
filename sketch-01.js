@@ -44,7 +44,7 @@ const sketch = () => {
         let color = 'black';
         let number = Math.random();
         if (number > 0.9){
-          color = colors[2];
+          color = colors;
         }
         
         // Filled Square
