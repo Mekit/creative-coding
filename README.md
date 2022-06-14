@@ -10,12 +10,16 @@
 
 - `sketch-01-a.js` - Grid with boxes
 - `sketch-01-b.js` - Grid using translate
-- `sketch-01-c.js` - Grid animated
+- `sketch-01-c.js` - Grid with randomness
+- `sketch-01-d.js` - Grid animated
 - `sketch-02.js` - Rotating lines
 
 ### Some basic commands
 
 ```
+# install canvas-sketch-cli globally
+npm install canvas-sketch-cli -g
+
 # open a terminal and navigate to your project folder
 cd /path/to/your/folder
 
