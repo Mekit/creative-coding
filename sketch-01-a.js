@@ -17,7 +17,7 @@ const sketch = () => {
 
     // Variables
     let padding = width * 0.1;
-    let gridCount = 20;
+    let gridCount = 50;
     let gridSize = (width - padding) / gridCount;
     let unit = gridSize * 0.1;
     let gridGap = unit * 1.5;
@@ -32,9 +32,9 @@ const sketch = () => {
         let y = gridSize * j + padding * 0.5;
 
         // Grid
-        // context.beginPath();
-        // context.rect(x, y, gridSize, gridSize);
-        // context.stroke();
+        context.beginPath();
+        context.rect(x, y, gridSize, gridSize);
+        context.stroke();
 
         // Let the computer decide
         // how many colored square
