@@ -45,16 +45,12 @@ class Circle{
     this.y = y;
 
     this.radius = 20;
-    // this.radius = random.range(20, 50);
+    this.color = colors[0];
 
-    this.moveX = 1;
-    this.moveY = 1;
+    // this.color = randomColor();
+    // this.radius = random.range(20, 50);
     // this.moveX = random.range(-2, 2);
     // this.moveY = random.range(-2, 2);
-
-    this.color = colors[0];
-    // this.color = randomColor();
-    
     // this.aRadius = this.radius;
     // this.timeOffset = random.rangeFloor(1, 8);
   }
