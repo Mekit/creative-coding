@@ -18,10 +18,12 @@ const sketch = ({context, width, height}) => {
   
   // Set up of circles
   const circles = [];
-  for (let index = 0; index < 100; index++) {
-    const x = random.range(0, width);
-    const y = random.range(0, height);
-    circles.push(new Circle(x, y));
+  for (let index = 0; index < 1000; index++) {
+    const radius = random.range(2, 20);
+    const x = random.range(radius, width - radius);
+    const y = random.range(radius, height - radius);
+    const circle = new Circle(radius, x, y);
+    circles.push(circle);
   }
   
   // Rendering loop
@@ -31,8 +33,8 @@ const sketch = ({context, width, height}) => {
 
     // Rendering the circles
     circles.forEach(circle => {
-      circle.draw(context);
       circle.animate(playhead, width, height);
+      circle.draw(context);
     });
   };
 };
@@ -40,19 +42,34 @@ const sketch = ({context, width, height}) => {
 canvasSketch(sketch, settings);
 
 class Circle{
-  constructor(x, y){
+  constructor(radius, x, y){
+    this.radius = radius; // random.range(20, 70);
     this.x = x;
     this.y = y;
 
-    this.radius = 20;
-    this.color = colors[0];
+    //if (x < this.radius){
+    //  this.x = this.radius;
+    //} else if (x > width - this.radius) {
+    //  this.x = width - this.radius;
+    //} else {
+    //  this.x = x;
+    //}
+//
+    //if (y < this.radius){
+    //  this.y = this.radius;
+    //} else if (y > height - this.radius) {
+    //  this.y = height - this.radius;
+    //} else {
+    //  this.y = y;
+    //}
 
-    // this.color = randomColor();
-    // this.radius = random.range(20, 50);
-    // this.moveX = random.range(-2, 2);
-    // this.moveY = random.range(-2, 2);
-    // this.aRadius = this.radius;
-    // this.timeOffset = random.rangeFloor(1, 8);
+    this.color = randomColor();
+    
+    this.moveX = random.range(-1, 1);
+    this.moveY = random.range(-1, 1);
+    
+    this.aRadius = this.radius;
+    this.timeOffset = random.rangeFloor(1, 8);
   }
 
   draw(context){
@@ -64,18 +81,20 @@ class Circle{
 
   animate(playhead, width, height){
     // Animate the radius
-    // const t = pingPongPlayheadOffset(playhead, this.timeOffset);
+    // const t = pingPongPlayhead(playhead);
+    const t = pingPongPlayheadOffset(playhead, this.timeOffset);
     // this.aRadius = this.radius * t;
+    this.aRadius = this.radius * t;
     
     // Moove the circle
-    // this.x = this.x + this.moveX;
-    // this.y = this.y + this.moveY;
-    // if (this.x <= 0 || this.x >= width){
-    //   this.moveX = -this.moveX;
-    // }
-    // if (this.y <= 0 || this.y >= height){
-    //   this.moveY = -this.moveY;
-    // }
+    this.x = this.x + this.moveX;
+    this.y = this.y + this.moveY;
+    if ((this.x <= 0 + this.radius) || (this.x >= width - this.radius)){
+      this.moveX = -this.moveX;
+    }
+    if ((this.y <= 0 + this.radius) || (this.y >= height - this.radius)){
+      this.moveY = -this.moveY;
+    }
   }
 }
 
