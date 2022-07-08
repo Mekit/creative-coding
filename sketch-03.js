@@ -47,22 +47,6 @@ class Circle{
     this.x = x;
     this.y = y;
 
-    //if (x < this.radius){
-    //  this.x = this.radius;
-    //} else if (x > width - this.radius) {
-    //  this.x = width - this.radius;
-    //} else {
-    //  this.x = x;
-    //}
-//
-    //if (y < this.radius){
-    //  this.y = this.radius;
-    //} else if (y > height - this.radius) {
-    //  this.y = height - this.radius;
-    //} else {
-    //  this.y = y;
-    //}
-
     this.color = randomColor();
     
     this.moveX = random.range(-1, 1);
