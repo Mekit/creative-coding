@@ -13,6 +13,7 @@
 - `sketch-01-c.js` - Grid with randomness
 - `sketch-01-d.js` - Grid animated
 - `sketch-02.js` - Rotating lines
+- `sketch-03.js` - Classes
 
 ### Some basic commands
 
